@@ -4,6 +4,8 @@ venv
 data
 dist
 build
-*.html
+*.html*
+*.csv
+*.xlsx
 .*
 !.gitignore
