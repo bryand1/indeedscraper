@@ -15,7 +15,7 @@ import util
 
 
 log = util.get_logger('indeed')
-    
+
 
 def download(args):
     """Download html files"""
@@ -55,8 +55,9 @@ def download(args):
         path = os.path.join(output_dir, mkfilename(page))
         _save(path, content, compress=gzip_on)
         log.info("%r page %d saved to %s", args.what, page, path)
-    
+
     log.info("download done %.1f sec", time.time() - start)
+
 
 def parse(args):
     # If the command-line option `--download` is set, then user
@@ -92,7 +93,7 @@ def parse(args):
         jobs = _parse(html)
         all_jobs.extend(jobs)
 
-    log.info("%r", all_jobs[0])
+    log.info("%d jobs", len(all_jobs))
 
     # Create CSV filepath
     filename = "{what}-{where}.csv".format(what=what, where=where)
@@ -116,6 +117,7 @@ def parse(args):
 
     log.info("parsing done %.1f sec", time.time() - start)
 
+
 def clean(args):
     """Remove HTML files"""
     if not args.clean:
@@ -131,6 +133,7 @@ def clean(args):
     for filepath in glob(glob_expr):
         os.remove(filepath)
 
+
 def _mkfilename(tpl: str, what: str, where: str, page: int):
     """Make filename from template string"""
     return tpl.format(what=what, where=where, page=page)
@@ -142,8 +145,10 @@ def _save(path, content, compress=True):
     _mode = 'wb' if compress else 'w'
     with _open(path, _mode) as fh:
         fh.write(content if compress else content.decode('utf-8'))
- 
+
+
 rank = 0
+
 
 def _parse(html: str) -> List[Dict]:
     global rank
@@ -160,8 +165,10 @@ def _parse(html: str) -> List[Dict]:
         jobs.append(d)
     return jobs
 
+
 def _sponsored(b: bool) -> str:
     return 'Yes' if b else 'No'
+
 
 def _viewjob(jk: str) -> str:
     return "https://www.indeed.com/viewjob?jk={}".format(jk)

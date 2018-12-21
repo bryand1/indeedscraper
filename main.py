@@ -11,7 +11,7 @@ if __name__ == '__main__':
     x.add_argument('what', type=str)
     x.add_argument('--where', type=str, default='')
     x.add_argument('--limit', type=int, default=10)
-    x.add_argument('--sleep', type=int, default=1)
+    x.add_argument('--sleep', type=int, default=2)
     x.add_argument('--out', type=str, default='.')
     x.add_argument('--download', action='store_const', const=True, default=False)
     x.add_argument('--parse', action='store_const', const=True, default=False)

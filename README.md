@@ -26,7 +26,7 @@ python main.py "gis technician" [--where "Santa Monica"] [--out .] \
 | `--where` | all locations | city, state, or zip code |
 | `--out` | `.` | directory to output CSV file |
 | `--limit` | `10` | page limit |
-| `--sleep` | `1` | seconds in between http requests |
+| `--sleep` | `2` | seconds in between http requests |
 | `--download` | `false` | only download html files, but do not parse |
 | `--parse` | `false` | only parse html files that match query |
 | `--clean` | `false` | remove html files after scraping is over |
