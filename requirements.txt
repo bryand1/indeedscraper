@@ -6,7 +6,7 @@ certifi==2018.11.29
 chardet==3.0.4
 demjson==2.2.4
 idna==2.8
-lxml==4.2.5
+lxml==4.9.1
 more-itertools==4.3.0
 pluggy==0.8.0
 py==1.7.0
